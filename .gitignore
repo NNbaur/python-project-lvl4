@@ -8,5 +8,6 @@ coverage.xml
 .pytest_cache/
 .vim
 *.swp
+.env
 db.sqlite3
 django_cache/
