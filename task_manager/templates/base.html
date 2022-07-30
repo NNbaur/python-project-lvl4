@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Главная страница</title>
+
+    <!-- Bootstrap core CSS -->
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% load bootstrap4 %}
+    {% load i18n %}
+    {% bootstrap_javascript jquery='full' %}
+  </head>
+
+  <body>
+
+    {% include 'inc/_nav.html' %}
+
+  <section>
+    <div class="container wrapper flex-grow-1">
+      {% bootstrap_messages %}
+    </div>
+  </section>
+
+  <section>
+    {% block content %}
+      CONTENT
+    {% endblock %}
+  </section>
+
+  </body>
+</html>

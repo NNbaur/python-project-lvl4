@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load i18n %}
+
+{% block content %}
+  <div class="container wrapper flex-grow-1">
+    <h1 class="my-4">Удаление пользователя</h1>
+      <p>Вы уверены, что хотите удалить {{ user }}?</p>
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <button type="submit" class="btn btn-danger">Да, удалить</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}
