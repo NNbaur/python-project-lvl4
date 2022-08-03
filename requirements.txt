@@ -7,4 +7,5 @@ beautifulsoup4==4.11.1
 soupsieve==2.3.2
 sqlparse==0.4.2
 dj-database-url
+whitenoise==6.2.0
 psycopg2
