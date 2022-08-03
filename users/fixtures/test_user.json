@@ -1,0 +1,18 @@
+[
+{
+    "model": "users.MyUser",
+    "pk": 1,
+    "fields": {
+        "password": "passwordtest123ZZ",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "username_test",
+        "first_name": "first_name_test",
+        "last_name": "last_name_test",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-07-02T03:50:30.162Z"
+    }
+}
+]

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'task_manager',
     'users.apps.UsersConfig',
+    'statuses.apps.StatusesConfig',
     'whitenoise.runserver_nostatic',
 ]
 

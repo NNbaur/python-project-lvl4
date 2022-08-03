@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load i18n %}
+
+{% block content %}
+<div class="container wrapper flex-grow-1">
+    <h1 class="my-4">Статусы</h1>
+    <a href="{% url 'status_add' %}">Создать статус</a>
+    <table class="table table-bordered">
+        <thead>
+        <tr style="background:#AFEEEE">
+            <th>ID</th>
+            <th>Имя</th>
+            <th>Дата создания</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for st in statuses_list %}
+                <tr style="background:#E0FFFF">
+                    <td>{{ st.pk }}</td>
+                    <td>{{ st.name }}</td>
+                    <td>{{ st.created_at|date:"d.m.Y H:i" }}</td>
+                    <td>
+                        <a href="{% url 'status_update' st.pk %}">Изменить</a><br>
+                        <a href="{% url 'status_delete' st.pk %}">Удалить</a>
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+{% endblock %}

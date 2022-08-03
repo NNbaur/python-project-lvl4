@@ -28,14 +28,18 @@ msgstr "Менеджер задач"
 msgid "Users"
 msgstr "Пользователи"
 
-#: task_manager/templates/inc/_nav.html:10
+#: task_manager/templates/inc/_nav.html:7
+msgid "Statuses"
+msgstr "Статусы"
+
+#: task_manager/templates/inc/_nav.html:11
 msgid "Logout"
 msgstr "Выход"
 
-#: task_manager/templates/inc/_nav.html:12
+#: task_manager/templates/inc/_nav.html:13
 msgid "CreateUser"
 msgstr "Регистрация"
 
-#: task_manager/templates/inc/_nav.html:12
+#: task_manager/templates/inc/_nav.html:13
 msgid "Login"
 msgstr "Вход"
