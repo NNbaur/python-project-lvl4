@@ -1,5 +1,8 @@
 import os
+from dotenv import load_dotenv
 
+
+load_dotenv()
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
@@ -9,10 +12,10 @@ DEBUG = False
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('PROD_DB_NAME'),
-        'USER': os.environ.get('PROD_DB_USER'),
-        'PASSWORD': os.environ.get('PROD_DB_PASS'),
-        'HOST': os.environ.get('PROD_DB_HOST'),
-        'PORT': os.environ.get('PROD_DB_PORT'),
+        'NAME': os.getenv('PROD_DB_NAME'),
+        'USER': os.getenv('PROD_DB_USER'),
+        'PASSWORD': os.getenv('PROD_DB_PASS'),
+        'HOST': os.getenv('PROD_DB_HOST'),
+        'PORT': os.getenv('PROD_DB_PORT'),
     },
 }
