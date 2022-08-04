@@ -47,7 +47,7 @@ class MyUserTestCase(TestCase):
         response = self.client.get(reverse('user_add'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, template_name='users/user_add.html')
-        # check add user,
+        # check add user
         user_add = {'first_name': 'test',
                     'last_name': 'test',
                     'username': 'test',
@@ -100,9 +100,8 @@ class MyUserTestCase(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('users_list'))
         # check user deleted from database
-        user_deleted = get_user_model().objects.first()
-        self.assertEqual(user_deleted, None)
-        # check delete other user from another user
+        self.assertEqual(get_user_model().objects.count(), 0)
+        # check delete one user by another user
         user_add = {'first_name': 'test',
                     'last_name': 'test',
                     'username': 'test',
@@ -111,9 +110,8 @@ class MyUserTestCase(TestCase):
         self.client.post(reverse('user_add'), user_add)
         user2 = get_user_model().objects.last()
         self.assertEqual(user2.username, 'test')
-
         response = self.client.post(reverse('user_delete', args=[user2.pk]))
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('users_list'))
         # check user not deleted from database
-        self.assertEqual(user2.username, 'test')
+        self.assertEqual(get_user_model().objects.count(), 1)
