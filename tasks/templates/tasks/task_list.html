@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load i18n %}
+
+{% block title %}<title>Задачи</title>{% endblock %}
+
+{% block content %}
+<div class="container wrapper flex-grow-1">
+    <h1 class="my-4">Задачи</h1>
+    <a href="{% url 'task_add' %}">
+        <button class="btn btn-outline-dark" style="margin-bottom: 7px">Создать</button>
+    </a>
+    <table class="table table-hover table-striped table-bordered">
+        <thead align="center">
+        <tr>
+            <th>ID</th>
+            <th>Имя</th>
+            <th>Статус</th>
+            <th>Автор</th>
+            <th>Исполнитель</th>
+            <th>Дата создания</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for task in task_list %}
+        <tr>
+            <td align="center">{{ task.pk }}</td>
+            <td align="center"><a href="{% url 'task_view' task.pk %}">{{ task.name }}</a></td>
+            <td align="center">{{ task.status }}</td>
+            <td align="center">{{ task.author }}</td>
+            <td align="center">{{ task.executor }}</td>
+            <td align="center">{{ task.created_at|date:"d.m.Y H:i" }}</td>
+            <td align="center"><a href="{% url 'task_update' task.pk %}" style="display: inline-block">
+                <button class="btn btn-outline-secondary btn-sm">Изменить</button>
+            </a>
+                <a href="{% url 'task_delete' task.pk %}" style="display: inline-block">
+                    <button class="btn btn-outline-secondary btn-sm">Удалить</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+{% endblock %}

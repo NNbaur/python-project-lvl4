@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load i18n %}
+
+{% block title %}<title>Просмотр задачи</title>{% endblock %}
+
+{% block content %}
+<div class="container wrapper flex-grow-1">
+  <h1 class="my-4">Просмотр задачи</h1>
+  <div class="card">
+    <div class="card-header bg-secondary text-white">
+      <h2>{{ object.name }}</h2>
+    </div>
+    <div class="card-body bg-light">
+      <p>{{ object.description }}</p>
+      <hr>
+      <div class="container">
+        <div class="row p-1">
+          <div class="col">Автор</div>
+          <div class="col">{{ object.author }}</div>
+        </div>
+        <div class="row p-1">
+          <div class="col">Исполнитель</div>
+          <div class="col">{{ object.executor }}</div>
+        </div>
+        <div class="row p-1">
+          <div class="col">Статус</div>
+          <div class="col">{{ object.status }}</div>
+        </div>
+        <div class="row p-1">
+          <div class="col">Дата создания</div>
+          <div class="col">{{ object.created_at }}</div>
+        </div>
+        <br>
+        <div class="row p-1">
+          <div class="col" align="left">
+            <a href="{% url 'task_update' object.pk %}">
+              <button class="btn btn-secondary">Изменить</button>
+            </a>
+            <a href="{% url 'task_delete' object.pk %}">
+              <button class="btn btn-secondary">Удалить</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

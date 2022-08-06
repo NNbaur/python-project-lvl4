@@ -2,13 +2,19 @@
 {% load bootstrap4 %}
 {% load i18n %}
 
+{% block title %}<title>Статусы</title>{% endblock %}
+
 {% block content %}
 <div class="container wrapper flex-grow-1">
+
     <h1 class="my-4">Статусы</h1>
-    <a href="{% url 'status_add' %}">Создать статус</a>
-    <table class="table table-bordered">
-        <thead>
-        <tr style="background:#AFEEEE">
+
+    <a href="{% url 'status_add' %}">
+        <button class="btn btn-outline-dark" style="margin-bottom: 7px">Создать</button>
+    </a>
+    <table class="table table-hover table-striped table-bordered">
+        <thead align="center">
+        <tr>
             <th>ID</th>
             <th>Имя</th>
             <th>Дата создания</th>
@@ -16,17 +22,21 @@
         </tr>
         </thead>
         <tbody>
-            {% for st in statuses_list %}
-                <tr style="background:#E0FFFF">
-                    <td>{{ st.pk }}</td>
-                    <td>{{ st.name }}</td>
-                    <td>{{ st.created_at|date:"d.m.Y H:i" }}</td>
-                    <td>
-                        <a href="{% url 'status_update' st.pk %}">Изменить</a><br>
-                        <a href="{% url 'status_delete' st.pk %}">Удалить</a>
-                    </td>
-                </tr>
-            {% endfor %}
+        {% for st in statuses_list %}
+        <tr>
+            <td align="center">{{ st.pk }}</td>
+            <td align="center">{{ st.name }}</td>
+            <td align="center">{{ st.created_at|date:"d.m.Y H:i" }}</td>
+            <td align="center">
+                <a href="{% url 'status_update' st.pk %}" style="display: inline-block">
+                    <button class="btn btn-outline-secondary btn-sm">Изменить</button>
+                </a>
+                <a href="{% url 'status_delete' st.pk %}" style="display: inline-block">
+                    <button class="btn btn-outline-secondary btn-sm">Удалить</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
 
         </tbody>
     </table>

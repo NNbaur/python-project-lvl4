@@ -2,38 +2,44 @@
 {% load bootstrap4 %}
 {% load i18n %}
 
+{% block title %}<title>Пользователи</title>{% endblock %}
+
 {% block content %}
 <div class="container wrapper flex-grow-1">
 
-  <h1 class="my-4">Пользователи</h1>
+    <h1 class="my-4">Пользователи</h1>
 
-  <table class="table table-bordered">
-    <thead>
-      <tr style="background:#AFEEEE">
-        <th>ID</th>
-        <th>Имя пользователя</th>
-        <th>Полное имя</th>
-        <th>Дата создания</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-    {% for user in users_list %}
+    <table class="table table-hover table-striped table-bordered">
+        <thead align="center">
+        <tr>
+            <th>ID</th>
+            <th>Имя пользователя</th>
+            <th>Полное имя</th>
+            <th>Дата создания</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users_list %}
         {% if not user.is_superuser %}
-            <tr style="background:#E0FFFF">
-                <td>{{ user.pk }}</td>
-                <td>{{ user.username }}</td>
-                <td>{{ user }}</td>
-                <td>{{ user.date_joined|date:"d.m.Y H:i" }}</td>
-                <td>
-                    <a href="{% url 'user_update' user.pk %}">Изменить</a>
-                    <a href="{% url 'user_delete' user.pk %}">Удалить</a>
-                </td>
-            </tr>
+        <tr>
+            <td align="center">{{ user.pk }}</td>
+            <td align="center">{{ user.username }}</td>
+            <td align="center">{{ user }}</td>
+            <td align="center">{{ user.date_joined|date:"d.m.Y H:i" }}</td>
+            <td align="center">
+                <a href="{% url 'user_update' user.pk %}" style="display: inline-block">
+                    <button class="btn btn-outline-secondary btn-sm">Изменить</button>
+                </a>
+                <a href="{% url 'user_delete' user.pk %}" style="display: inline-block">
+                    <button class="btn btn-outline-secondary btn-sm">Удалить</button>
+                </a>
+            </td>
+        </tr>
         {% endif %}
-      {% endfor %}
+        {% endfor %}
 
-    </tbody>
-  </table>
+        </tbody>
+    </table>
 </div>
 {% endblock %}

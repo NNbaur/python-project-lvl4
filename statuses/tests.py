@@ -54,7 +54,7 @@ class StatusTestCase(TestCase):
         status_updated = Status.objects.first()
         self.assertEqual(status_updated.name, 'status_test1')
 
-    def test_user_delete(self):
+    def test_status_delete(self):
         # check response status, template
         status = Status.objects.first()
         response = self.client.get(reverse('status_delete', args=[status.pk]))

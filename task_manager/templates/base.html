@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Главная страница</title>
+    {% block title %}{% endblock %}
 
     <!-- Bootstrap core CSS -->
     {% load bootstrap4 %}
@@ -15,17 +15,13 @@
 
     {% include 'inc/_nav.html' %}
 
-  <section>
     <div class="container wrapper flex-grow-1">
       {% bootstrap_messages %}
     </div>
-  </section>
 
-  <section>
     {% block content %}
       CONTENT
     {% endblock %}
-  </section>
 
   </body>
 </html>
