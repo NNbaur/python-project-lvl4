@@ -7,4 +7,4 @@ class TaskForm(forms.ModelForm):
                            widget=forms.TextInput(attrs={'class': 'form-control', 'autocomplete': 'off'}))
     class Meta:
         model = Task
-        fields = ['name', 'description', 'status', 'executor']
+        fields = ['name', 'description', 'status', 'executor', 'label']

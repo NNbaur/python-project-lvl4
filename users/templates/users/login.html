@@ -2,15 +2,15 @@
 {% load bootstrap4 %}
 {% load i18n %}
 
-{% block title %}<title>Логин</title>{% endblock %}
+{% block title %}<title>{% trans 'Login' %}</title>{% endblock %}
 
 {% block content %}
 <div class="container wrapper flex-grow-1">
-    <h1>Логин</h1>
+    <h1 class="my-4">{% trans 'Login' %}</h1>
     <form method="post">
         {% csrf_token %}
         {% bootstrap_form form %}
-        <button type="submit" class="'btn btn-primary">Логин</button>
+        <button type="submit" class="'btn btn-primary">{% trans 'Login' %}</button>
     </form>
 </div>
 {% endblock %}

@@ -2,43 +2,53 @@
 {% load bootstrap4 %}
 {% load i18n %}
 
-{% block title %}<title>Просмотр задачи</title>{% endblock %}
+{% block title %}<title>{% trans 'Task view' %}</title>{% endblock %}
 
 {% block content %}
 <div class="container wrapper flex-grow-1">
-  <h1 class="my-4">Просмотр задачи</h1>
+  <h1 class="my-4">{% trans 'Task view' %}</h1>
   <div class="card">
     <div class="card-header bg-secondary text-white">
-      <h2>{{ object.name }}</h2>
+      <h3>{{ object.name }}</h3>
     </div>
     <div class="card-body bg-light">
       <p>{{ object.description }}</p>
       <hr>
       <div class="container">
         <div class="row p-1">
-          <div class="col">Автор</div>
+          <div class="col">{% trans 'Author' %}</div>
           <div class="col">{{ object.author }}</div>
         </div>
         <div class="row p-1">
-          <div class="col">Исполнитель</div>
+          <div class="col">{% trans 'Executor' %}</div>
           <div class="col">{{ object.executor }}</div>
         </div>
         <div class="row p-1">
-          <div class="col">Статус</div>
+          <div class="col">{% trans 'Status' %}</div>
           <div class="col">{{ object.status }}</div>
         </div>
         <div class="row p-1">
-          <div class="col">Дата создания</div>
+          <div class="col">{% trans 'Created at' %}</div>
           <div class="col">{{ object.created_at }}</div>
+        </div>
+        <div class="row p-1">
+          <div class="col">
+          <h6>{% trans 'Labels:' %}:</h6>
+            <ul>
+              {% for l in object.label.all %}
+              <li>{{ l }}</li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
         <br>
         <div class="row p-1">
           <div class="col" align="left">
-            <a href="{% url 'task_update' object.pk %}">
-              <button class="btn btn-secondary">Изменить</button>
+            <a href="{% url 'task_update' object.pk %}" style="display: inline-block">
+              <button class="btn btn-outline-dark btn-sm">{% trans 'Update' %}</button>
             </a>
-            <a href="{% url 'task_delete' object.pk %}">
-              <button class="btn btn-secondary">Удалить</button>
+            <a href="{% url 'task_delete' object.pk %}" style="display: inline-block">
+              <button class="btn btn-outline-dark btn-sm">{% trans 'Delete' %}</button>
             </a>
           </div>
         </div>

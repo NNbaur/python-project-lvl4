@@ -7,11 +7,12 @@
                 <li class="nav-item"><a class="nav-link" href="{% url 'users_list' %}">{% trans 'Users' %}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'status_list' %}">{% trans 'Statuses' %}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'task_list' %}">{% trans 'Tasks' %}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'label_list' %}">{% trans 'Labels' %}</a></li>
             </ul>
             <span class="navbar-text">
-                Вы вошли, как {{ user.username }} | <a href="{% url 'logout' %}">{% trans 'Logout' %}</a>
+                {% trans "You're logged in as" %} {{ user.username }} | <a href="{% url 'logout' %}">{% trans 'Logout' %}</a>
             </span>
-            {% else %}
+        {% else %}
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">{% trans 'Task manager' %}</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'users_list' %}">{% trans 'Users' %}</a></li>
@@ -19,6 +20,14 @@
                 <span class="navbar-text">
                     <a href="{% url 'user_add' %}">{% trans 'CreateUser' %}</a> | <a href="{% url 'login' %}">{% trans 'Login' %}</a>
                 </span>
-            {% endif %}
+        {% endif %}
+
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+
+        <a style="font-size: 12px; color: grey; margin-bottom: -2px; margin-left: 10px;" href="/{{ languages.0.code }}/">EN</a>
+        <a style="font-size: 12px; color: grey; margin-bottom: -2px; margin-left: 5px;" href="/{{ languages.1.code }}/">RU</a>
+
     </div>
 </nav>

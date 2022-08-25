@@ -2,16 +2,16 @@
 {% load bootstrap4 %}
 {% load i18n %}
 
-{% block title %}<title>Создать задачу</title>{% endblock %}
+{% block title %}<title>{% trans 'Create task' %}</title>{% endblock %}
 
 {% block content %}
   <div class="container wrapper flex-grow-1">
-    <h1 class="my-4">Создать задачу</h1>
+    <h1 class="my-4">{% trans 'Create task' %}</h1>
     <form method="post">
       {% csrf_token %}
       {% bootstrap_form form %}
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Создать</button>
+        <button type="submit" class="btn btn-primary">{% trans 'Create' %}</button>
       </div>
     </form>
   </div>

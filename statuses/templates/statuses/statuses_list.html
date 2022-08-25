@@ -2,22 +2,22 @@
 {% load bootstrap4 %}
 {% load i18n %}
 
-{% block title %}<title>Статусы</title>{% endblock %}
+{% block title %}<title>{% trans 'Statuses' %}</title>{% endblock %}
 
 {% block content %}
 <div class="container wrapper flex-grow-1">
 
-    <h1 class="my-4">Статусы</h1>
+    <h1 class="my-4">{% trans 'Statuses' %}</h1>
 
     <a href="{% url 'status_add' %}">
-        <button class="btn btn-outline-dark" style="margin-bottom: 7px">Создать</button>
+        <button class="btn btn-outline-dark" style="margin-bottom: 7px">{% trans 'Create' %}</button>
     </a>
     <table class="table table-hover table-striped table-bordered">
         <thead align="center">
         <tr>
             <th>ID</th>
-            <th>Имя</th>
-            <th>Дата создания</th>
+            <th>{% trans 'Name' %}</th>
+            <th>{% trans 'Created at' %}</th>
             <th></th>
         </tr>
         </thead>
@@ -29,10 +29,10 @@
             <td align="center">{{ st.created_at|date:"d.m.Y H:i" }}</td>
             <td align="center">
                 <a href="{% url 'status_update' st.pk %}" style="display: inline-block">
-                    <button class="btn btn-outline-secondary btn-sm">Изменить</button>
+                    <button class="btn btn-outline-secondary btn-sm">{% trans 'Update' %}</button>
                 </a>
                 <a href="{% url 'status_delete' st.pk %}" style="display: inline-block">
-                    <button class="btn btn-outline-secondary btn-sm">Удалить</button>
+                    <button class="btn btn-outline-secondary btn-sm">{% trans 'Delete' %}</button>
                 </a>
             </td>
         </tr>

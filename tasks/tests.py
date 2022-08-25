@@ -6,7 +6,11 @@ from .models import *
 
 class TaskTestCase(TestCase):
 
-    fixtures = ['test_user.json', 'test_status.json', 'test_task.json']
+    fixtures = [
+        'test_user.json',
+        'test_status.json',
+        'test_task.json'
+    ]
 
     def setUp(self):
         # simulate user logging for auth.system

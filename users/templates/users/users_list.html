@@ -2,20 +2,20 @@
 {% load bootstrap4 %}
 {% load i18n %}
 
-{% block title %}<title>Пользователи</title>{% endblock %}
+{% block title %}<title>{% trans 'Users' %}</title>{% endblock %}
 
 {% block content %}
 <div class="container wrapper flex-grow-1">
 
-    <h1 class="my-4">Пользователи</h1>
+    <h1 class="my-4">{% trans 'Users' %}</h1>
 
     <table class="table table-hover table-striped table-bordered">
         <thead align="center">
         <tr>
             <th>ID</th>
-            <th>Имя пользователя</th>
-            <th>Полное имя</th>
-            <th>Дата создания</th>
+            <th>{% trans 'Username' %}</th>
+            <th>{% trans 'Full name' %}</th>
+            <th>{% trans 'Created at' %}</th>
             <th></th>
         </tr>
         </thead>
@@ -29,10 +29,10 @@
             <td align="center">{{ user.date_joined|date:"d.m.Y H:i" }}</td>
             <td align="center">
                 <a href="{% url 'user_update' user.pk %}" style="display: inline-block">
-                    <button class="btn btn-outline-secondary btn-sm">Изменить</button>
+                    <button class="btn btn-outline-secondary btn-sm">{% trans 'Update' %}</button>
                 </a>
                 <a href="{% url 'user_delete' user.pk %}" style="display: inline-block">
-                    <button class="btn btn-outline-secondary btn-sm">Удалить</button>
+                    <button class="btn btn-outline-secondary btn-sm">{% trans 'Delete' %}</button>
                 </a>
             </td>
         </tr>
