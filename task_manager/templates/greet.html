@@ -15,26 +15,26 @@
   </div>
   <div class="row1-container">
     <div class="box box-down cyan">
-      <h2><a style="color: var(--veryDarkBlue);" href="{% url 'task_list' %}">{% trans 'Tasks' %}</a></h2>
+      <a style="color: var(--veryDarkBlue); font-size: 2rem;" href="{% url 'task_list' %}">{% trans 'Tasks' %}</a>
       <p>{% trans "Create tasks so you don't miss out on anything important in your work plan" %}</p>
       <img src="{% static 'task1.png' %}" alt="">
     </div>
 
     <div class="box red">
-      <h2><a style="color: var(--veryDarkBlue);" href="{% url 'label_list' %}">{% trans 'Labels' %}</a></h2>
+     <a style="color: var(--veryDarkBlue); font-size: 2rem;" href="{% url 'label_list' %}">{% trans 'Labels' %}</a>
       <p>{% trans 'Group tasks according to different criteria with labels' %}</p>
       <img src="{% static 'label1.png' %}" alt="">
     </div>
 
     <div class="box box-down blue">
-      <h2><a style="color: var(--veryDarkBlue);" href="{% url 'users_list' %}">{% trans 'Executors' %}</a></h2>
+      <a style="color: var(--veryDarkBlue); font-size: 2rem;" href="{% url 'users_list' %}">{% trans 'Executors' %}</a>
       <p>{% trans 'Designate one or more people to be responsible for completing tasks' %}</p>
       <img src="{% static 'executor1.png' %}" alt="">
     </div>
   </div>
   <div class="row2-container">
     <div class="box orange">
-      <h2><a style="color: var(--veryDarkBlue);" href="{% url 'status_list' %}">{% trans 'Statuses' %}</a></h2>
+      <a style="color: var(--veryDarkBlue); font-size: 2rem;" href="{% url 'status_list' %}">{% trans 'Statuses' %}</a>
       <p>{% trans 'Track the status to know at what stage the task is' %}</p>
       <img src="{% static 'status1.png' %}" alt="">
     </div>

@@ -67,18 +67,30 @@ h1:last-of-type {
 
 img {
     float: right;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto\9;
+    display: block
 }
 
 @media (max-width: 450px) {
     .box {
+        height: 210px;
+    }
+}
+
+@media (max-width: 1200px) and (min-width: 690px) {
+    .box {
+        text-align: center;
         height: 200px;
     }
 }
 
-@media (max-width: 950px) and (min-width: 450px) {
+@media (max-width: 690px) and (min-width: 450px) {
     .box {
         text-align: center;
-        height: 180px;
+        height: 210px;
     }
 }
 
@@ -95,12 +107,7 @@ img {
     border-top: 3px solid var(--orange);
 }
 
-h2 {
-    color: var(--veryDarkBlue);
-    font-weight: var(--weight3);
-}
-
-@media (min-width: 950px) {
+@media (min-width: 1201px) {
     .row1-container {
         display: flex;
         justify-content: center;

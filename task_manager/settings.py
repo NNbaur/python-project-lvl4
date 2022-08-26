@@ -13,6 +13,7 @@ from pathlib import Path
 import os
 from dotenv import find_dotenv, load_dotenv
 import dj_database_url
+import rollbar
 
 
 load_dotenv(find_dotenv())
@@ -62,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
 
 ROOT_URLCONF = 'task_manager.urls'
@@ -155,3 +157,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.MyUser'
 
 LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale/'), )
+
+ROLLBAR = {
+    'access_token': '82680122f59b404aa73846a73beda00a',
+    'environment': 'development' if DEBUG else 'production',
+    'root': BASE_DIR,
+}
+rollbar.init(**ROLLBAR)
