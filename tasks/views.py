@@ -1,8 +1,10 @@
+import csv
 from .forms import *
 from .filters import TaskFilter
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
+from django.http import HttpResponse
 from django_filters.views import FilterView
 from django.utils.translation import gettext_lazy as _
 from django.contrib.messages.views import SuccessMessageMixin
@@ -54,3 +56,19 @@ class DeleteTask(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, D
 class TaskView(LoginRequiredMixin, DetailView):
     model = Task
     template_name = 'tasks/task_view.html'
+
+
+def excel_csv(request):
+    response = HttpResponse(content_type='text/csv', charset='cp1251')
+    response['Content-Disposition'] = "attachment; filename=report.csv"
+
+    writer = csv.writer(response, delimiter=';')
+
+    tasks = Task.objects.all()
+
+    writer.writerow(['ID', 'Имя', 'Статус', 'Автор', 'Исполнитель', 'Дата создания'])
+
+    for task in tasks:
+        writer.writerow([task.pk, task.name, task.status, task.author, task.executor, task.created_at])
+
+    return response

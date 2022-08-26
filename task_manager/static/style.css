@@ -67,11 +67,6 @@ h1:last-of-type {
 
 img {
     float: right;
-    max-width: 100%;
-    max-height: 100%;
-    height: auto;
-    width: auto\9;
-    display: block
 }
 
 @media (max-width: 450px) {
@@ -92,19 +87,6 @@ img {
         text-align: center;
         height: 210px;
     }
-}
-
-.cyan {
-    border-top: 3px solid var(--cyan);
-}
-.red {
-    border-top: 3px solid var(--red);
-}
-.blue {
-    border-top: 3px solid var(--blue);
-}
-.orange {
-    border-top: 3px solid var(--orange);
 }
 
 @media (min-width: 1201px) {
@@ -130,5 +112,17 @@ img {
     .header p {
         width: 30%;
     }
+}
 
+.cyan {
+    border-top: 3px solid var(--cyan);
+}
+.red {
+    border-top: 3px solid var(--red);
+}
+.blue {
+    border-top: 3px solid var(--blue);
+}
+.orange {
+    border-top: 3px solid var(--orange);
 }
