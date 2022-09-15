@@ -32,7 +32,7 @@ class MyUserTestCase(TestCase):
         self.client.post(reverse('user_add'), user_add)
         response = self.client.post(reverse('login'), {'username': 'test', 'password': '12345678test'})
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, '/')
+        self.assertRedirects(response, '/en/')
         # check login with false login&pass
         response = self.client.post(reverse('login'), {'username': 'test2', 'password': '123458test'})
         self.assertEqual(response.status_code, 302)
@@ -40,7 +40,7 @@ class MyUserTestCase(TestCase):
         # check logout
         response = self.client.post(reverse('logout'))
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, '/')
+        self.assertRedirects(response, '/en/')
 
     def test_users_list(self):
         # check response status, template
@@ -69,7 +69,7 @@ class MyUserTestCase(TestCase):
         self.assertEqual(get_user_model().objects.count(), 3)
         # check add user with same username
         response = self.client.post(reverse('user_add'), user_add)
-        self.assertFormError(response, 'form', 'username', 'Пользователь с таким именем уже существует.')
+        self.assertFormError(response, 'form', 'username', 'A user with that username already exists.')
 
     def test_user_update(self):
         # check response status, template

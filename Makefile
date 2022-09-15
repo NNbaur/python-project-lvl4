@@ -10,11 +10,11 @@ package-install:
 uninstall:
 	python3 -m pip uninstall hexlet_code-0.1.0-py3-none-any.whl
 
-lint:
-	poetry run flake8 page_loader
+run:
+	python3 manage.py runserver
 
-test:
-	poetry run pytest
+migrations:
+	python3 manage.py makemigrations
 
-test-coverage:
-	poetry run pytest --cov=page_loader --cov-report xml
+migrate:
+	python3 manage.py migrate
