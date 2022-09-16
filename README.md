@@ -5,6 +5,21 @@
 ______
 TaskManager is a small web application helping to deal with tasks. Designed for usage by a small team but also suitable for single person usage.
 
+### Features
+______
+
+* Application is configured to work with PostgreSQL database;
+* User authorization system;
+* Only the user can edit and update himself;
+* If the status/label is associated with at least one task, it cannot be deleted;
+* Only logged users can view, create, update, delete statuses/labels;
+* After authorization, the user can create a task for himself by specifying its name, description, status, executor from the list of registered users and, if necessary, select one or more labels from the list; 
+* Only logged users can create, update and view tasks;
+* Only the author can delete tasks;
+* User can display a list of tasks with the ability to filter by status, author, executor, and labels;
+* Available two languages of website: RU, EN.
+
+
 ### Local usage
 ______
 
@@ -13,6 +28,7 @@ You will need the following environment variables specified in your .env file:
 * SECRET_KEY
 * ACCESS_TOKEN
 * DATABASE_URL
+* DEBUG
 
 Run the following commands to use locally:
 
