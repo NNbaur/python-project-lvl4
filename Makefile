@@ -22,15 +22,15 @@ collect:
 run:
 	poetry run python3 manage.py runserver 8080
 
-test:
-	poetry run coverage run manage.py test
-
-test-coverage:
-	poetry run coverage report
-
 lint:
 	poetry run flake8 labels
 	poetry run flake8 statuses
 	poetry run flake8 task_manager
 	poetry run flake8 tasks
 	poetry run flake8 users
+
+test:
+	poetry run coverage run manage.py test
+
+test-coverage:
+	poetry run coverage report
