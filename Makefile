@@ -24,6 +24,8 @@ run:
 
 test:
 	poetry run coverage run manage.py test
+
+test-coverage:
 	poetry run coverage report
 
 lint:
