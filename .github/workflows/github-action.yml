@@ -28,6 +28,7 @@ jobs:
           pip install django-filter
           pip install rollbar
           pip install flake8
+          pip install coverage
           make install
       - name: Run linter
         run:
