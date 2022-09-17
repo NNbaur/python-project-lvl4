@@ -31,6 +31,4 @@ lint:
 
 test:
 	poetry run coverage run manage.py test
-
-test-coverage:
-	poetry run coverage lcov
+	poetry run coverage xml
