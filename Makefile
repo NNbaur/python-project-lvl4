@@ -24,6 +24,7 @@ run:
 
 test:
 	poetry run coverage run manage.py test
+	poetry run coverage report
 
 lint:
 	poetry run flake8 labels
