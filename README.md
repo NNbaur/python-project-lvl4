@@ -1,5 +1,5 @@
 ### Hexlet tests and linter status:
-[![Actions Status](https://github.com/NNbaur/python-project-lvl4/workflows/hexlet-check/badge.svg)](https://github.com/NNbaur/python-project-lvl4/actions)
+[![Actions Status](https://github.com/NNbaur/python-project-lvl4/workflows/hexlet-check/badge.svg)](https://github.com/NNbaur/python-project-lvl4/actions) <a href="https://codeclimate.com/github/NNbaur/python-project-lvl4/maintainability"><img src="https://api.codeclimate.com/v1/badges/a8670ff28326526a79b5/maintainability" /></a> <a href="https://codeclimate.com/github/NNbaur/python-project-lvl4/test_coverage"><img src="https://api.codeclimate.com/v1/badges/a8670ff28326526a79b5/test_coverage" /></a>
 
 ### Description
 ______

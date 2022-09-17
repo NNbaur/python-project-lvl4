@@ -114,6 +114,14 @@ optional = false
 python-versions = ">=3.5"
 
 [[package]]
+name = "nose"
+version = "1.3.7"
+description = "nose extends unittest to make testing easier"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "psycopg2"
 version = "2.9.3"
 description = "psycopg2 - Python-PostgreSQL Database Adapter"
@@ -221,7 +229,7 @@ brotli = ["brotli"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "e27bfaf07f54f2e5a4cb1db2bdff2ed3531da06b1cac996fa85ae796761e1184"
+content-hash = "a703d3d1420863ebd3ee9c4529d833c380da259355a5adc146a97bdd59eae33d"
 
 [metadata.files]
 asgiref = []
@@ -235,8 +243,10 @@ dj-database-url = []
 django = []
 django-bootstrap4 = []
 django-filter = []
+django-nose = []
 gunicorn = []
 idna = []
+nose = []
 psycopg2 = []
 python-dotenv = []
 requests = [

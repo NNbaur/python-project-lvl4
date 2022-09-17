@@ -1,5 +1,6 @@
 import csv
-from .forms import *
+from .models import Task
+from .forms import TaskForm
 from .filters import TaskFilter
 from django.contrib import messages
 from django.urls import reverse_lazy
@@ -25,6 +26,7 @@ class CreateTask(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     template_name = 'tasks/task_add.html'
     success_url = reverse_lazy('task_list')
     success_message = _('Task created successfully')
+
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super(CreateTask, self).form_valid(form)
@@ -61,14 +63,9 @@ class TaskView(LoginRequiredMixin, DetailView):
 def excel_csv(request):
     response = HttpResponse(content_type='text/csv', charset='cp1251')
     response['Content-Disposition'] = "attachment; filename=report.csv"
-
     writer = csv.writer(response, delimiter=';')
-
     tasks = Task.objects.all()
-
     writer.writerow(['ID', 'Имя', 'Статус', 'Автор', 'Исполнитель', 'Дата создания'])
-
     for task in tasks:
         writer.writerow([task.pk, task.name, task.status, task.author, task.executor, task.created_at])
-
     return response

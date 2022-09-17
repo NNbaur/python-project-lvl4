@@ -1,4 +1,5 @@
-from .forms import *
+from .models import MyUser
+from .forms import UserRegistrationForm
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
@@ -29,9 +30,11 @@ class UpdateUser(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, U
     template_name = 'users/user_update.html'
     success_url = reverse_lazy('users_list')
     success_message = _('The user has been successfully changed')
+
     def test_func(self):
         obj = self.get_object()
         return obj.username == self.request.user.username
+
     def handle_no_permission(self):
         messages.error(self.request, _('You do not have rights to change this user!'))
         return redirect(reverse_lazy('users_list'))

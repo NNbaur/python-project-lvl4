@@ -1,4 +1,5 @@
-from .forms import *
+from .models import Label
+from .forms import LabelForm
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.shortcuts import redirect

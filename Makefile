@@ -10,14 +10,24 @@ package-install:
 uninstall:
 	python3 -m pip uninstall hexlet_code-0.1.0-py3-none-any.whl
 
-run:
-	python3 manage.py runserver
-
 migrations:
-	python3 manage.py makemigrations
+	poetry run python3 manage.py makemigrations
 
 migrate:
-	python3 manage.py migrate
+	poetry run python3 manage.py migrate
+
+collect:
+	poetry run python3 manage.py collectstatic
+
+run:
+	poetry run python3 manage.py runserver 8080
 
 test:
-	python3 manage.py test
+	poetry run python3 manage.py test
+
+lint:
+	poetry run flake8 labels
+	poetry run flake8 statuses
+	poetry run flake8 task_manager
+	poetry run flake8 tasks
+	poetry run flake8 users

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import *
+from .views import StatusListView, CreateStatus, UpdateStatus, DeleteStatus
 
 urlpatterns = [
     path('', StatusListView.as_view(), name='status_list'),

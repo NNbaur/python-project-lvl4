@@ -3,7 +3,7 @@ from .models import Status
 
 
 class StatusForm(forms.ModelForm):
-    name = forms.CharField(label='Имя', error_messages={'unique': 'Статус с таким именем уже существует!'} ,
+    name = forms.CharField(label='Имя', error_messages={'unique': 'Статус с таким именем уже существует!'},
                            widget=forms.TextInput(attrs={'class': 'form-control', 'autocomplete': 'off'}))
 
     class Meta:

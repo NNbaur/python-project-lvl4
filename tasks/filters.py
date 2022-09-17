@@ -2,6 +2,7 @@ from .models import Task
 import django_filters
 from django import forms
 
+
 class TaskFilter(django_filters.FilterSet):
     self_task = django_filters.BooleanFilter(method='user_is_creator',
                                              widget=forms.CheckboxInput)
