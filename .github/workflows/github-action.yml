@@ -30,6 +30,7 @@ jobs:
           pip install flake8
           pip install coverage
           make install
+          make collect
       - name: Run linter
         run:
           make lint
