@@ -27,6 +27,7 @@ jobs:
           pip install whitenoise
           pip install django-filter
           pip install rollbar
+          pip install flake8
           make install
       - name: Run linter
         run:
