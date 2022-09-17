@@ -23,7 +23,7 @@ run:
 	poetry run python3 manage.py runserver 8080
 
 test:
-	poetry run python3 manage.py test
+	poetry run coverage run manage.py test
 
 lint:
 	poetry run flake8 labels
